@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="styles.css" rel="stylesheet" type="text/css">
+<script src="script.js" defer></script>
+<title>機舖實時現況</title>
+</head>
+<body>
+<table>
+<tr>
+    <td><label for="search"><i class="fa-solid fa-magnifying-glass"></i>Search:</label></td>
+    <td><label for="tag"><i class="fa-solid fa-tag"></i>Tag:</label></td>
+    <td></td>
+</tr>
+<tr>
+    <td><input type="search" id="search" data-search></td>
+    <td><input type="tag" id="searchtag" data-searchtag></td>
+    <td>
+        <div class="dropdown">
+            <button class="dropbtn">Dropdown</button>
+            <div class="dropdown-content">
+                <a id="ppAsc">人數↑</a>
+                <a id="ppDesc">人數↓</a>
+                <a id="timeAsc">距離時間↑</a>
+                <a id="timeDesc">距離時間↓</a>
+            </div>
+        </div>
+    </td>
+</tr>
+</table>
+<div class="container" id="dataContainer">
+    <!-- Data will be displayed here -->
+</div>
+</body>
+</html>
