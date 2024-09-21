@@ -33,7 +33,7 @@ document.querySelector('.dropbtn').addEventListener('click', function() {
 const url = "https://maimai-map.joeminecraft1234funs35.workers.dev/";
 
 window.onload = function() {
-    loaddata(1, true);
+    loaddata(2, false);
   };
 
 function loaddata(colIndex, asc) {
