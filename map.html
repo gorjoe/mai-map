@@ -1,23 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Google Maps Without API Key</title>
-<style>
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
-    #map {
-        height: 100%;
-        width: 100%;
-    }
-</style>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0", maximum-scale=1.0, user-scalable=no">
+        <title>Google Maps Without API Key</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+            }
+            html, body, #map {
+                height: 100%;
+                width: 100vw;
+            }
+        </style>
+    </head>
 <body>
-<div id="map">
-<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1kJvBiz13P0zMCzH5j-IpCq2jJGtd6N4&ehbc=2E312F&noprof=1" width="100%" height="100%"></iframe>
-</div>
+    <div id="map"></div>
+    
+    <script>
+        var map = L.map('map').setView([22.361444547491175, 114.11403435325406], 12);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+
+        let dataArray = [
+            { x: 22.27806, y: 114.1789, name: "灣仔 - Smart Game" },
+            { x: 22.28414, y: 114.15486, name: "中環 - 創聲遊戲機" },
+            { x: 22.2828, y: 114.22195, name: "西灣河 - 西灣河遊戲機中心" },
+            { x: 22.24837, y: 114.15615, name: "香港仔 - 珍寶遊戲機中心" },
+            { x: 22.29785, y: 114.16951, name: "尖沙咀 - 新港機城" },
+            { x: 22.30828, y: 114.17106, name: "佐敦 - GAMEZONE" },
+            { x: 22.31429, y: 114.17016, name: "油麻地 - 金星遊戲機中心" },
+            { x: 22.3198, y: 114.16979, name: "旺角 - 新之城" },
+            { x: 22.31673, y: 114.17171, name: "旺角 - Smart Game" },
+            { x: 22.31833, y: 114.17179, name: "旺角 - 金雞遊戲機" },
+            { x: 22.3357, y: 114.15915, name: "長沙灣 - 龍威遊戲機中心" },
+            { x: 22.33147, y: 114.16259, name: "深水埗 - 電子廣場" },
+            { x: 22.3403, y: 114.20299, name: "鑽石山 - 荷里活遊戲城" },
+            { x: 22.31114, y: 114.22608, name: "觀塘 - GAMEZONE" },
+            { x: 22.31421, y: 114.22291, name: "牛頭角 - 168遊戲機中心" },
+            { x: 22.36576, y: 114.1368, name: "葵涌 - 碧富遊戲機中心" },
+            { x: 22.3738, y: 114.11634, name: "荃灣 - 金星遊戲機中心" },
+            { x: 22.45781, y: 114.0023, name: "天水圍 - Power City" },
+            { x: 22.40159, y: 113.97815, name: "屯門 - 天天遊戲機中心（四寶大廈）" },
+            { x: 22.38417, y: 114.19216, name: "沙田 - 沙龍遊戲機中心" },
+            { x: 22.45386, y: 114.16702, name: "大埔 - I-game" }
+        ];
+
+        for (let i = 0; i < dataArray.length; i++) {
+            let currentElement = dataArray[i];
+            let x = currentElement.x;
+            let y = currentElement.y;
+            let name = currentElement.name;
+
+            var marker = L.marker([x, y]).addTo(map).bindPopup(name);
+        }
+    </script>
 </body>
 </html>
